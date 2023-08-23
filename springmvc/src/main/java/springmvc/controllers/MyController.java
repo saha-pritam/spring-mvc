@@ -4,10 +4,9 @@ package springmvc.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class MyController {
@@ -22,13 +21,15 @@ public class MyController {
 	
 	@ResponseBody
 	@RequestMapping(path = "/handleForm",method = RequestMethod.POST)
-	public String formController(HttpServletRequest req) {
-		System.out.println("User Name :- "+req.getParameter("username"));
-		System.out.println("User Email :- "+req.getParameter("usermail"));
-		System.out.println("User Password :- "+req.getParameter("userpassword"));
-		System.out.println("User Occupation :- "+req.getParameter("useroccupation"));
-		System.out.println("News Letters :- "+req.getParameter("newsletters"));
-		System.out.println("Agree term :- "+req.getParameter("agreeterm"));
+	public String formController(@RequestParam("username")String username, @RequestParam("usermail") String usermail, @RequestParam("userpassword") String userpassword, 
+			@RequestParam("useroccupation") String useroccupation, @RequestParam("newsletters") String newsletters, 
+			@RequestParam("agreeterm") String agreeterm ) {
+		System.out.println("User Name :- "+username);
+		System.out.println("User Email :- "+usermail);
+		System.out.println("User Password :- "+userpassword);
+		System.out.println("User Occupation :- "+useroccupation);
+		System.out.println("News Letters :- "+newsletters);
+		System.out.println("Agree term :- "+agreeterm);
 		return "Form submitted";
 	}
 }
