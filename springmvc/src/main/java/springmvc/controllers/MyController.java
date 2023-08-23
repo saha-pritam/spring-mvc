@@ -3,6 +3,7 @@ package springmvc.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,12 @@ public class MyController {
 		m.addAttribute("data2", "Hi I am common data 2");
 	}
 	
+	@RequestMapping("/")
+	public String welcome() {
+		System.out.println("welcome");
+		return "index";
+	}
+	
 	@RequestMapping("/home")
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -29,7 +36,9 @@ public class MyController {
 	}
 	
 	@RequestMapping(path = "/handleForm",method = RequestMethod.POST)
-	public String formController(@ModelAttribute User user) {
+	public String formController(@ModelAttribute("user") User user, BindingResult result) {
+		if(result.hasErrors())
+			return "index";
 		System.out.println("User Name :- "+user.getUsername());
 		System.out.println("User Email :- "+user.getUsermail());
 		System.out.println("User Password :- "+user.getUserpassword());

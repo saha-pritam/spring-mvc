@@ -1,6 +1,7 @@
 package springmvc.model;
 
 public class User {
+	private int userid;
 	private String username;
 	private String usermail;
 	private String userpassword;
@@ -8,6 +9,12 @@ public class User {
 	private String newsletters;
 	private String agreeterm;
 	private Address address;
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 	public String getUsername() {
 		return username;
 	}

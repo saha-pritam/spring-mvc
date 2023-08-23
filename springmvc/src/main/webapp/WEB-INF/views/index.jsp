@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <html>
    <head>
       <link
@@ -12,7 +13,12 @@
    </head>
    <body>
       <div style="width:50%" class="m-auto">
+      <form:errors path="user.*" cssStyle="color:red" element="div" cssClass="alert alert-danger text-center mt-2"/>
          <form method="post" action="handleForm">
+         	<div class="mb-3">
+               <label class="form-label">User Id</label> 
+               <input type="text" class="form-control" name="userid">
+            </div>
             <div class="mb-3">
                <label class="form-label">User Name</label> 
                <input type="text" class="form-control" name="username">
