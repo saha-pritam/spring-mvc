@@ -33,6 +33,30 @@
                   <option value="Service">Service</option>
                </select>
             </div>
+            
+            <div class="m-auto" style="width:90%;">
+            <h1 class="display-6 text-center">Address</h1>
+            <div class="mb-3">
+               <label class="form-label">City</label> 
+               <input type="text" class="form-control" name="address.city">
+            </div>
+            
+            <div class="mb-3">
+               <label class="form-label">Country</label> 
+               <input type="text" class="form-control" name="address.country">
+            </div>
+            
+            <div class="mb-3">
+               <label class="form-label">State</label> 
+               <input type="text" class="form-control" name="address.state">
+            </div>
+            
+            <div class="mb-3">
+               <label class="form-label">Postal Code</label> 
+               <input type="text" class="form-control" name="address.postalCode">
+            </div>
+            </div>
+            
             <div class="mb-3">
                <label class="form-label">Get News Letters</label>
                <br>

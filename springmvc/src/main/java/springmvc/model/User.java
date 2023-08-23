@@ -7,6 +7,7 @@ public class User {
 	private String useroccupation;
 	private String newsletters;
 	private String agreeterm;
+	private Address address;
 	public String getUsername() {
 		return username;
 	}
@@ -43,6 +44,10 @@ public class User {
 	public void setAgreeterm(String agreeterm) {
 		this.agreeterm = agreeterm;
 	}
-	
-	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 }

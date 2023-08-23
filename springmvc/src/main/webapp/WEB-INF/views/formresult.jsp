@@ -15,5 +15,9 @@
 <h3>User occupation = ${user.useroccupation}</h3>
 <h3>News letters = ${user.newsletters}</h3>
 <h3>Agree term = ${user.agreeterm}</h3>
+<h3>City = ${user.address.city}</h3>
+<h3>State = ${user.address.state}</h3>
+<h3>Country = ${user.address.country}</h3>
+<h3>Postal Code = ${user.address.postalCode}</h3>
 </body>
 </html>
