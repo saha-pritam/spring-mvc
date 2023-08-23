@@ -2,11 +2,12 @@ package springmvc.controllers;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import springmvc.model.User;
 
 @Controller
 public class MyController {
@@ -19,17 +20,14 @@ public class MyController {
 		return modelAndView;
 	}
 	
-	@ResponseBody
 	@RequestMapping(path = "/handleForm",method = RequestMethod.POST)
-	public String formController(@RequestParam("username")String username, @RequestParam("usermail") String usermail, @RequestParam("userpassword") String userpassword, 
-			@RequestParam("useroccupation") String useroccupation, @RequestParam("newsletters") String newsletters, 
-			@RequestParam("agreeterm") String agreeterm ) {
-		System.out.println("User Name :- "+username);
-		System.out.println("User Email :- "+usermail);
-		System.out.println("User Password :- "+userpassword);
-		System.out.println("User Occupation :- "+useroccupation);
-		System.out.println("News Letters :- "+newsletters);
-		System.out.println("Agree term :- "+agreeterm);
-		return "Form submitted";
+	public String formController(@ModelAttribute User user) {
+		System.out.println("User Name :- "+user.getUsername());
+		System.out.println("User Email :- "+user.getUsermail());
+		System.out.println("User Password :- "+user.getUserpassword());
+		System.out.println("User Occupation :- "+user.getUseroccupation());
+		System.out.println("News Letters :- "+user.getNewsletters());
+		System.out.println("Agree term :- "+user.getAgreeterm());
+		return "formresult";
 	}
 }
