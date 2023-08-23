@@ -2,6 +2,7 @@ package springmvc.controllers;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +12,13 @@ import springmvc.model.User;
 
 @Controller
 public class MyController {
+	
+	@ModelAttribute
+	public void commonData(Model m) {
+		System.out.println("Adding common data");
+		m.addAttribute("data1", "Hi I am common data 1");
+		m.addAttribute("data2", "Hi I am common data 2");
+	}
 	
 	@RequestMapping("/home")
 	public ModelAndView home() {

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>${data1}</h1>
+<h1>${data2}</h1>
 <h3>User name = ${user.username}</h3>
 <h3>User email = ${user.usermail}</h3>
 <h3>User password = ${user.userpassword}</h3>

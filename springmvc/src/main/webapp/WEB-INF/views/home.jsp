@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>${data1}</h1>
+	<h1>${data2}</h1>
 	<h1 style="text-align: center">Hi ${name}</h1>
 	
 </body>
