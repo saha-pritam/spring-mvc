@@ -4,6 +4,7 @@ package springmvc.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,5 +47,30 @@ public class MyController {
 		System.out.println("News Letters :- "+user.getNewsletters());
 		System.out.println("Agree term :- "+user.getAgreeterm());
 		return "formresult";
+	}
+	
+	@RequestMapping("/exceptionOne")
+	public String intentionalExceptionOne() {
+		String s=null;
+		s.length(); //This will lead to null pointer exception
+		return "";
+	}
+	
+	@RequestMapping("/exceptionTwo")
+	public String intentionalExceptionTwo() {
+		int x = 5/0; //This will lead to division by zero exception
+		return "";
+	}
+	
+	@RequestMapping("/exceptionThree")
+	public String intentionalExceptionThree() {
+		String s="pritam";
+		s.charAt(10); //This will lead to index out of bounds exception
+		return "";
+	}
+	
+	@ExceptionHandler(value = {NullPointerException.class, ArithmeticException.class})
+	public String exceptionHandler() {
+		return "error";
 	}
 }
