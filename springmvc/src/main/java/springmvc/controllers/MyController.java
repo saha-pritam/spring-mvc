@@ -70,20 +70,20 @@ public class MyController {
 	}
 	
 	@ExceptionHandler(value = Exception.class)
-	public String generalizedExceptionExceptionHandler(Model model) {
-		model.addAttribute("errorData","An Unknown Exception Has Occured");
+	public String generalizedExceptionExceptionHandler(Model model, Exception exception) {
+		model.addAttribute("errorData",exception.getMessage());
 		return "error";
 	}
 	
 	@ExceptionHandler(value = NullPointerException.class)
-	public String nullPointerExceptionHandler(Model model) {
-		model.addAttribute("errorData","Null Pointer Exception Has Occured");
+	public String nullPointerExceptionHandler(Model model,  Exception exception) {
+		model.addAttribute("errorData",exception.getMessage());
 		return "error";
 	}
 	
 	@ExceptionHandler(value = ArithmeticException.class)
-	public String arithmeticExceptionExceptionHandler(Model model) {
-		model.addAttribute("errorData","Arithmetic Exception Has Occured");
+	public String arithmeticExceptionExceptionHandler(Model model,  Exception exception) {
+		model.addAttribute("errorData",exception.getMessage());
 		return "error";
 	}
 	
