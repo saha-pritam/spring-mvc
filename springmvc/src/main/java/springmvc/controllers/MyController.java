@@ -70,27 +70,4 @@ public class MyController {
 		s.charAt(10); //This will lead to index out of bounds exception
 		return "";
 	}
-	
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@ExceptionHandler(value = Exception.class)
-	public String generalizedExceptionExceptionHandler(Model model, Exception exception) {
-		model.addAttribute("errorData",exception.getMessage());
-		return "error";
-	}
-	
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@ExceptionHandler(value = NullPointerException.class)
-	public String nullPointerExceptionHandler(Model model,  Exception exception) {
-		model.addAttribute("errorData",exception.getMessage());
-		return "error";
-	}
-	
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@ExceptionHandler(value = ArithmeticException.class)
-	public String arithmeticExceptionExceptionHandler(Model model,  Exception exception) {
-		model.addAttribute("errorData",exception.getMessage());
-		return "error";
-	}
-	
-	
 }
