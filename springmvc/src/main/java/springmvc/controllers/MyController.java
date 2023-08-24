@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,15 +40,8 @@ public class MyController {
 	}
 	
 	@RequestMapping(path = "/handleForm",method = RequestMethod.POST)
-	public String formController(@ModelAttribute("user") User user, BindingResult result) {
-		if(result.hasErrors())
-			return "index";
-		System.out.println("User Name :- "+user.getUsername());
-		System.out.println("User Email :- "+user.getUsermail());
-		System.out.println("User Password :- "+user.getUserpassword());
-		System.out.println("User Occupation :- "+user.getUseroccupation());
-		System.out.println("News Letters :- "+user.getNewsletters());
-		System.out.println("Agree term :- "+user.getAgreeterm());
+	public String formController(@RequestParam("username") String username,Model model) {
+		model.addAttribute("username", username);
 		return "formresult";
 	}
 	

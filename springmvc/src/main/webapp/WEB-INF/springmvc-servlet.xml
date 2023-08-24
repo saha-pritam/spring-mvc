@@ -19,4 +19,11 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/handleForm"/>
+			<bean class="springmvc.interceptors.MyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
