@@ -69,6 +69,12 @@ public class MyController {
 		return "";
 	}
 	
+	@ExceptionHandler(value = Exception.class)
+	public String generalizedExceptionExceptionHandler(Model model) {
+		model.addAttribute("errorData","An Unknown Exception Has Occured");
+		return "error";
+	}
+	
 	@ExceptionHandler(value = NullPointerException.class)
 	public String nullPointerExceptionHandler(Model model) {
 		model.addAttribute("errorData","Null Pointer Exception Has Occured");
@@ -80,4 +86,6 @@ public class MyController {
 		model.addAttribute("errorData","Arithmetic Exception Has Occured");
 		return "error";
 	}
+	
+	
 }
