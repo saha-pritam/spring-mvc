@@ -1,6 +1,7 @@
 package springmvc.controllers;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import springmvc.model.User;
@@ -69,18 +71,21 @@ public class MyController {
 		return "";
 	}
 	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(value = Exception.class)
 	public String generalizedExceptionExceptionHandler(Model model, Exception exception) {
 		model.addAttribute("errorData",exception.getMessage());
 		return "error";
 	}
 	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(value = NullPointerException.class)
 	public String nullPointerExceptionHandler(Model model,  Exception exception) {
 		model.addAttribute("errorData",exception.getMessage());
 		return "error";
 	}
 	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(value = ArithmeticException.class)
 	public String arithmeticExceptionExceptionHandler(Model model,  Exception exception) {
 		model.addAttribute("errorData",exception.getMessage());
