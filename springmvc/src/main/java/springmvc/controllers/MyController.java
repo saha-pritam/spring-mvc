@@ -69,8 +69,15 @@ public class MyController {
 		return "";
 	}
 	
-	@ExceptionHandler(value = {NullPointerException.class, ArithmeticException.class})
-	public String exceptionHandler() {
+	@ExceptionHandler(value = NullPointerException.class)
+	public String nullPointerExceptionHandler(Model model) {
+		model.addAttribute("errorData","Null Pointer Exception Has Occured");
+		return "error";
+	}
+	
+	@ExceptionHandler(value = ArithmeticException.class)
+	public String arithmeticExceptionExceptionHandler(Model model) {
+		model.addAttribute("errorData","Arithmetic Exception Has Occured");
 		return "error";
 	}
 }
